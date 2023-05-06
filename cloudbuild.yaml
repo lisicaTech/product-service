@@ -18,7 +18,5 @@ steps:
   - 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service'
   - '--region'
   - 'us-central1'
-  - '--update-env-vars'
-  - 'NODE_ENV=dev,MONGODB_URL=mongodb+srv://ranaditya2011:Swastik%402003@cluster0.zxgjx4k.mongodb.net/lisiatech-db?authMechanism=DEFAULT,JWT_SECRET=YourSecret,'
 images:
 - us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service
