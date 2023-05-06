@@ -1,13 +1,12 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/product-service:$COMMIT_SHA', '.']
-  env:
-  - 'NODE_ENV=dev'
-  - 'ATLAS_URI=mongodb+srv://ranaditya2011:Swastik%402003@cluster0.zxgjx4k.mongodb.net/lisiatech-db?authMechanism=DEFAULT'
-# Push the container image to Container Registry
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service', '.']
+
+# Push the container image to Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/product-service:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service']
+
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
@@ -16,10 +15,10 @@ steps:
   - 'deploy'
   - 'product-service'
   - '--image'
-  - 'gcr.io/$PROJECT_ID/product-service:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service'
   - '--region'
   - 'us-central1'
   - '--update-env-vars'
-  - 'NODE_ENV=dev,ATLAS_URI=mongodb+srv://ranaditya2011:Swastik%402003@cluster0.zxgjx4k.mongodb.net/lisiatech-db?authMechanism=DEFAULT'
+  - 'NODE_ENV=dev,MONGODB_URL=mongodb+srv://ranaditya2011:Swastik%402003@cluster0.zxgjx4k.mongodb.net/lisiatech-db?authMechanism=DEFAULT,JWT_SECRET=YourSecret,'
 images:
-- gcr.io/$PROJECT_ID/product-service:$COMMIT_SHA
+- us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service
