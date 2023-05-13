@@ -4,13 +4,9 @@ steps:
   args: ['build', '-t', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service', '.']
 
 # Push the container image to Artifact Registry
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service', '.']
-
-# Push the container image to Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service']
 
-  args: ['push', 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service']
 
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -29,5 +25,4 @@ steps:
   - '--update-secrets'
   - 'MONGODB_URL=MONGODB_URL:1'
 images:
-- us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service
 - us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service
