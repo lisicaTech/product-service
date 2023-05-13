@@ -17,7 +17,6 @@ steps:
   - 'product-service'
   - '--image'
   - 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service'
-  - 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service'
   - '--region'
   - 'us-central1'
   - '--set-env-vars'
