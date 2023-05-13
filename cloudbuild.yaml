@@ -18,8 +18,8 @@ steps:
   - 'us-central1-docker.pkg.dev/interior-design-project-384617/lisicatech-repo/$PROJECT_ID/product-service'
   - '--region'
   - 'us-central1'
-  - '--update-env-vars'
-  - 'NODE_ENV=sit'
+  - '--set-env-vars'
+  - 'NODE_ENV=dev,JWT_SECRET=MySecret'
   - '--update-secrets'
   - 'MONGODB_URL=MONGODB_URL:1'
 images:
